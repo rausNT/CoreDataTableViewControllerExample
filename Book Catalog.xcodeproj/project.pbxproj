@@ -8,22 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		539EE9611DA071E20032F523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE9601DA071E20032F523 /* AppDelegate.swift */; };
-		539EE9631DA071E20032F523 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE9621DA071E20032F523 /* ViewController.swift */; };
 		539EE9661DA071E20032F523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 539EE9641DA071E20032F523 /* Main.storyboard */; };
 		539EE9691DA071E20032F523 /* Book_Catalog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 539EE9671DA071E20032F523 /* Book_Catalog.xcdatamodeld */; };
 		539EE96B1DA071E20032F523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 539EE96A1DA071E20032F523 /* Assets.xcassets */; };
 		539EE96E1DA071E20032F523 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 539EE96C1DA071E20032F523 /* LaunchScreen.storyboard */; };
+		539EE9791DA073F60032F523 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE9781DA073F60032F523 /* CoreDataTableViewController.swift */; };
+		539EE97B1DA074210032F523 /* ListaLivrosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE97A1DA074210032F523 /* ListaLivrosController.swift */; };
+		539EE97F1DA074D90032F523 /* Livro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE97D1DA074D90032F523 /* Livro+CoreDataClass.swift */; };
+		539EE9801DA074D90032F523 /* Livro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE97E1DA074D90032F523 /* Livro+CoreDataProperties.swift */; };
+		539EE9821DA078910032F523 /* DetalheLivroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE9811DA078910032F523 /* DetalheLivroController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		539EE95D1DA071E20032F523 /* Book Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		539EE9601DA071E20032F523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		539EE9621DA071E20032F523 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		539EE9651DA071E20032F523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		539EE9681DA071E20032F523 /* Book_Catalog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book_Catalog.xcdatamodel; sourceTree = "<group>"; };
 		539EE96A1DA071E20032F523 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		539EE96D1DA071E20032F523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		539EE96F1DA071E20032F523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		539EE9781DA073F60032F523 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		539EE97A1DA074210032F523 /* ListaLivrosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaLivrosController.swift; sourceTree = "<group>"; };
+		539EE97D1DA074D90032F523 /* Livro+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Livro+CoreDataClass.swift"; sourceTree = "<group>"; };
+		539EE97E1DA074D90032F523 /* Livro+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Livro+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		539EE9811DA078910032F523 /* DetalheLivroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheLivroController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,51 @@
 		539EE95F1DA071E20032F523 /* Book Catalog */ = {
 			isa = PBXGroup;
 			children = (
+				539EE97C1DA074270032F523 /* Livros */,
+				539EE9771DA072040032F523 /* Storyboard */,
+				539EE9761DA071F70032F523 /* Core Data */,
+				539EE9751DA071ED0032F523 /* Support Files */,
+			);
+			path = "Book Catalog";
+			sourceTree = "<group>";
+		};
+		539EE9751DA071ED0032F523 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
 				539EE9601DA071E20032F523 /* AppDelegate.swift */,
-				539EE9621DA071E20032F523 /* ViewController.swift */,
-				539EE9641DA071E20032F523 /* Main.storyboard */,
 				539EE96A1DA071E20032F523 /* Assets.xcassets */,
 				539EE96C1DA071E20032F523 /* LaunchScreen.storyboard */,
 				539EE96F1DA071E20032F523 /* Info.plist */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		539EE9761DA071F70032F523 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				539EE97D1DA074D90032F523 /* Livro+CoreDataClass.swift */,
+				539EE97E1DA074D90032F523 /* Livro+CoreDataProperties.swift */,
+				539EE9781DA073F60032F523 /* CoreDataTableViewController.swift */,
 				539EE9671DA071E20032F523 /* Book_Catalog.xcdatamodeld */,
 			);
-			path = "Book Catalog";
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		539EE9771DA072040032F523 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				539EE9641DA071E20032F523 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		539EE97C1DA074270032F523 /* Livros */ = {
+			isa = PBXGroup;
+			children = (
+				539EE9811DA078910032F523 /* DetalheLivroController.swift */,
+				539EE97A1DA074210032F523 /* ListaLivrosController.swift */,
+			);
+			name = Livros;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				539EE9801DA074D90032F523 /* Livro+CoreDataProperties.swift in Sources */,
 				539EE9691DA071E20032F523 /* Book_Catalog.xcdatamodeld in Sources */,
-				539EE9631DA071E20032F523 /* ViewController.swift in Sources */,
+				539EE9821DA078910032F523 /* DetalheLivroController.swift in Sources */,
 				539EE9611DA071E20032F523 /* AppDelegate.swift in Sources */,
+				539EE97B1DA074210032F523 /* ListaLivrosController.swift in Sources */,
+				539EE9791DA073F60032F523 /* CoreDataTableViewController.swift in Sources */,
+				539EE97F1DA074D90032F523 /* Livro+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
