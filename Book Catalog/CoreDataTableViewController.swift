@@ -9,64 +9,22 @@
 import UIKit
 import CoreData
 
-class CoreDataTableViewController: UITableViewController,  NSFetchedResultsControllerDelegate
+class CoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate
 {
-    var managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-    
-    var fetchedResultsController: NSFetchedResultsController<NSManagedObject>? {
-        didSet {
-            do {
-                if let resultsController = fetchedResultsController {
-                    resultsController.delegate = self
-                    try resultsController.performFetch()
-                    tableView.reloadData()
-                }
-            } catch let error {
-                print("PerformFetch failed: \(error)")
-            }
-        }
+    var container: NSPersistentContainer? {
+        return (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     }
     
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController?.sections?.count ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController?.sections?[section].numberOfObjects ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func getFetchedResultsController<T>(for request:NSFetchRequest<T>) -> NSFetchedResultsController<T>?
     {
-        if let sections = fetchedResultsController?.sections, sections.count > 0 {
-            return sections[section].name
-        } else {
-            return nil
+        if let context = container?.viewContext {
+            let frc = NSFetchedResultsController(fetchRequest: request,
+                                                 managedObjectContext: context,
+                                                 sectionNameKeyPath: nil,
+                                                 cacheName: nil)
+            return frc
         }
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return fetchedResultsController?.sectionIndexTitles
-    }
-    
-    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
-            if let obj = fetchedResultsController?.object(at: indexPath) {
-                managedObjectContext?.delete(obj as NSManagedObject)
-                do {
-                    try managedObjectContext?.save()
-                } catch let error {
-                    print("\(error)")
-                }
-            }
-        default: break
-        }
+        return nil
     }
     
     // MARK: - NSFetchedResultControllerDelegate methods

@@ -9,27 +9,35 @@
 import UIKit
 import CoreData
 
-class ListaLivrosController: CoreDataTableViewController {
-
+class ListaLivrosController: CoreDataTableViewController
+{
     override func viewDidLoad() {
         super.viewDidLoad()
         requestFetchedResultsController()
     }
     
+    internal var fetchedResultsController: NSFetchedResultsController<Livro>? {
+        didSet {
+            do {
+                if let resultsController = fetchedResultsController {
+                    resultsController.delegate = self
+                    try resultsController.performFetch()
+                    tableView.reloadData()
+                }
+            } catch let error {
+                print("PerformFetch failed: \(error)")
+            }
+        }
+    }
+    
+
     // MARK: - CoreDataTableViewController FetchedResultsController setup
     
     private func requestFetchedResultsController() {
-        let request = NSFetchRequest<NSManagedObject>(entityName: "Livro")
+        let request = NSFetchRequest<Livro>(entityName: "Livro")
         request.sortDescriptors = [ NSSortDescriptor(key: "titulo", ascending: true) ]
         
-        if let context = managedObjectContext {
-            fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
-                                                                  managedObjectContext: context,
-                                                                  sectionNameKeyPath: nil,
-                                                                  cacheName: nil)
-        } else {
-            fetchedResultsController = nil
-        }
+        fetchedResultsController = getFetchedResultsController(for: request)
     }
     
     // MARK: - UITableView data source
@@ -37,7 +45,7 @@ class ListaLivrosController: CoreDataTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        if let livro = fetchedResultsController?.object(at: indexPath) as? Livro {
+        if let livro = fetchedResultsController?.object(at: indexPath) {
             cell.textLabel?.text = livro.titulo
             cell.detailTextLabel?.text = livro.editora
         }
@@ -49,13 +57,12 @@ class ListaLivrosController: CoreDataTableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetalheLivroController {
-            destination.managedObjectContext = managedObjectContext
+            destination.managedObjectContext = container?.viewContext
             if segue.identifier == "inserirLivro" {
                 destination.livro = nil
             } else
             if let indexPath = tableView.indexPathForSelectedRow,
-                let livro = fetchedResultsController?.object(at: indexPath) as? Livro
-            {
+                let livro = fetchedResultsController?.object(at: indexPath) {
                 destination.livro = livro
             }
         }

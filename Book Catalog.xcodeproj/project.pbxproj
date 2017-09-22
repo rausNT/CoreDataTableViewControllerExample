@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		535F8B771F74AC060061B55F /* ListraLivrosControllerTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F8B761F74AC060061B55F /* ListraLivrosControllerTableViewExtension.swift */; };
 		539EE9611DA071E20032F523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE9601DA071E20032F523 /* AppDelegate.swift */; };
 		539EE9661DA071E20032F523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 539EE9641DA071E20032F523 /* Main.storyboard */; };
 		539EE9691DA071E20032F523 /* Book_Catalog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 539EE9671DA071E20032F523 /* Book_Catalog.xcdatamodeld */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		535F8B761F74AC060061B55F /* ListraLivrosControllerTableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListraLivrosControllerTableViewExtension.swift; sourceTree = "<group>"; };
 		539EE95D1DA071E20032F523 /* Book Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		539EE9601DA071E20032F523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		539EE9651DA071E20032F523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				539EE9811DA078910032F523 /* DetalheLivroController.swift */,
 				539EE97A1DA074210032F523 /* ListaLivrosController.swift */,
+				535F8B761F74AC060061B55F /* ListraLivrosControllerTableViewExtension.swift */,
 			);
 			name = Livros;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				539EE9801DA074D90032F523 /* Livro+CoreDataProperties.swift in Sources */,
+				535F8B771F74AC060061B55F /* ListraLivrosControllerTableViewExtension.swift in Sources */,
 				539EE9691DA071E20032F523 /* Book_Catalog.xcdatamodeld in Sources */,
 				539EE9821DA078910032F523 /* DetalheLivroController.swift in Sources */,
 				539EE9611DA071E20032F523 /* AppDelegate.swift in Sources */,
@@ -352,6 +356,7 @@
 				539EE9741DA071E20032F523 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
