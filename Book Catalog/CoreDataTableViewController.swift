@@ -15,6 +15,18 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
         return (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     }
     
+    internal func refreshData<T>(for fetchedResultsController:NSFetchedResultsController<T>?) throws {
+        do {
+            if let resultsController = fetchedResultsController {
+                resultsController.delegate = self
+                try resultsController.performFetch()
+                tableView.reloadData()
+            }
+        } catch {
+           throw error
+        }
+    }
+    
     func getFetchedResultsController<T>(for request:NSFetchRequest<T>) -> NSFetchedResultsController<T>?
     {
         if let context = container?.viewContext {
@@ -28,7 +40,6 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
     }
     
     // MARK: - NSFetchedResultControllerDelegate methods
-    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -62,5 +73,5 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    
+        
 }

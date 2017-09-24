@@ -16,21 +16,12 @@ class ListaLivrosController: CoreDataTableViewController
         requestFetchedResultsController()
     }
     
-    internal var fetchedResultsController: NSFetchedResultsController<Livro>? {
+    var fetchedResultsController: NSFetchedResultsController<Livro>? {
         didSet {
-            do {
-                if let resultsController = fetchedResultsController {
-                    resultsController.delegate = self
-                    try resultsController.performFetch()
-                    tableView.reloadData()
-                }
-            } catch let error {
-                print("PerformFetch failed: \(error)")
-            }
+            try? refreshData(for: fetchedResultsController)
         }
     }
     
-
     // MARK: - CoreDataTableViewController FetchedResultsController setup
     
     private func requestFetchedResultsController() {
@@ -40,7 +31,7 @@ class ListaLivrosController: CoreDataTableViewController
         fetchedResultsController = getFetchedResultsController(for: request)
     }
     
-    // MARK: - UITableView data source
+    // MARK: - UITableView Cell Render
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

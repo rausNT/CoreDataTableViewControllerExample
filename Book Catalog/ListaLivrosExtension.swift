@@ -1,27 +1,17 @@
 //
-//  ListraLivrosExtension.swift
+//  ListaLivrosExtension.swift
 //  Book Catalog
 //
-//  Created by Rafael Jeffman on 21/09/17.
+//  Created by Rafael Jeffman on 24/09/17.
 //  Copyright © 2017 Rafael Jeffman. All rights reserved.
-//
-
-import Foundation
-
-//
-//  CoreDataTableViewController.swift
-//  Diário de Classe
-//
-//  Created by Rafael Jeffman on 20/09/16.
-//  Copyright © 2016 Rafael Jeffman. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-extension ListaLivrosController
-{    
-    // MARK: - Table view data source
+extension ListaLivrosController {
+    
+    // MARK: Implements the UITableViewDataSource protocol
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0
@@ -54,7 +44,7 @@ extension ListaLivrosController
             if let obj = fetchedResultsController?.object(at: indexPath),
                 let context = container?.viewContext
             {
-                context.delete(obj as NSManagedObject)
+                context.delete(obj)
                 do {
                     try context.save()
                 } catch let error {
