@@ -1,9 +1,5 @@
 //
 //  CoreDataTableViewController.swift
-//  Diário de Classe
-//
-//  Created by Rafael Jeffman on 20/09/16.
-//  Copyright © 2016 Rafael Jeffman. All rights reserved.
 //
 
 import UIKit
@@ -11,11 +7,18 @@ import CoreData
 
 class CoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate
 {
+    func updateRequest() { /* This method should be overriden */ }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateRequest()
+    }
+
     var container: NSPersistentContainer? {
         return (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     }
     
-    internal func refreshData<T>(for fetchedResultsController:NSFetchedResultsController<T>?) throws {
+    func refreshData<T>(for fetchedResultsController:NSFetchedResultsController<T>?) throws {
         do {
             if let resultsController = fetchedResultsController {
                 resultsController.delegate = self

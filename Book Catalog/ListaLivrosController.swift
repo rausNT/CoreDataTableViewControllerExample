@@ -1,9 +1,5 @@
 //
 //  ListaLivrosController.swift
-//  Book Catalog
-//
-//  Created by Rafael Jeffman on 01/10/16.
-//  Copyright © 2016 Rafael Jeffman. All rights reserved.
 //
 
 import UIKit
@@ -11,11 +7,6 @@ import CoreData
 
 class ListaLivrosController: CoreDataTableViewController
 {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        requestFetchedResultsController()
-    }
-    
     var fetchedResultsController: NSFetchedResultsController<Livro>? {
         didSet {
             try? refreshData(for: fetchedResultsController)
@@ -24,7 +15,8 @@ class ListaLivrosController: CoreDataTableViewController
     
     // MARK: - CoreDataTableViewController FetchedResultsController setup
     
-    private func requestFetchedResultsController() {
+    override func updateRequest()
+    {
         let request = NSFetchRequest<Livro>(entityName: "Livro")
         request.sortDescriptors = [ NSSortDescriptor(key: "titulo", ascending: true) ]
         
