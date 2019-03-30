@@ -10,9 +10,7 @@ import UIKit
 import CoreData
 
 extension ListaLivrosController {
-    
-    // MARK: Implements the UITableViewDataSource protocol
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0
     }
@@ -38,7 +36,7 @@ extension ListaLivrosController {
         return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
             if let obj = fetchedResultsController?.object(at: indexPath),

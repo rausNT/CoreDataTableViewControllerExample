@@ -15,8 +15,7 @@
 		539EE96E1DA071E20032F523 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 539EE96C1DA071E20032F523 /* LaunchScreen.storyboard */; };
 		539EE9791DA073F60032F523 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE9781DA073F60032F523 /* CoreDataTableViewController.swift */; };
 		539EE97B1DA074210032F523 /* ListaLivrosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE97A1DA074210032F523 /* ListaLivrosController.swift */; };
-		539EE97F1DA074D90032F523 /* Livro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE97D1DA074D90032F523 /* Livro+CoreDataClass.swift */; };
-		539EE9801DA074D90032F523 /* Livro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE97E1DA074D90032F523 /* Livro+CoreDataProperties.swift */; };
+		539EE97F1DA074D90032F523 /* Livro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE97D1DA074D90032F523 /* Livro.swift */; };
 		539EE9821DA078910032F523 /* DetalheLivroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539EE9811DA078910032F523 /* DetalheLivroController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +30,7 @@
 		539EE96F1DA071E20032F523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		539EE9781DA073F60032F523 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		539EE97A1DA074210032F523 /* ListaLivrosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaLivrosController.swift; sourceTree = "<group>"; };
-		539EE97D1DA074D90032F523 /* Livro+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Livro+CoreDataClass.swift"; sourceTree = "<group>"; };
-		539EE97E1DA074D90032F523 /* Livro+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Livro+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		539EE97D1DA074D90032F523 /* Livro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Livro.swift; sourceTree = "<group>"; };
 		539EE9811DA078910032F523 /* DetalheLivroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheLivroController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,8 +86,7 @@
 		539EE9761DA071F70032F523 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				539EE97D1DA074D90032F523 /* Livro+CoreDataClass.swift */,
-				539EE97E1DA074D90032F523 /* Livro+CoreDataProperties.swift */,
+				539EE97D1DA074D90032F523 /* Livro.swift */,
 				539EE9781DA073F60032F523 /* CoreDataTableViewController.swift */,
 				539EE9671DA071E20032F523 /* Book_Catalog.xcdatamodeld */,
 			);
@@ -141,12 +138,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Rafael Jeffman";
 				TargetAttributes = {
 					539EE95C1DA071E20032F523 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 67PX7SHSDS;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -187,14 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				539EE9801DA074D90032F523 /* Livro+CoreDataProperties.swift in Sources */,
 				539EE9691DA071E20032F523 /* Book_Catalog.xcdatamodeld in Sources */,
 				539EE9821DA078910032F523 /* DetalheLivroController.swift in Sources */,
 				539EE9611DA071E20032F523 /* AppDelegate.swift in Sources */,
 				539EE97B1DA074210032F523 /* ListaLivrosController.swift in Sources */,
 				539EE9791DA073F60032F523 /* CoreDataTableViewController.swift in Sources */,
 				536B0D001F77DFD300563DDB /* ListaLivrosExtension.swift in Sources */,
-				539EE97F1DA074D90032F523 /* Livro+CoreDataClass.swift in Sources */,
+				539EE97F1DA074D90032F523 /* Livro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,15 +226,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -279,15 +284,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -322,7 +335,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rafaeljeffman.rafasgj.Book-Catalog";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -335,7 +349,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rafaeljeffman.rafasgj.Book-Catalog";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
